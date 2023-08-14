@@ -15,6 +15,8 @@ import lombok.*;
 @Getter
 @ToString
 @EqualsAndHashCode
+@Builder
+@Cacheable
 public class Student {
 
     @Id

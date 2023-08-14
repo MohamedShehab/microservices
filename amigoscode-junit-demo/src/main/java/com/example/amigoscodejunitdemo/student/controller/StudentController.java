@@ -4,6 +4,7 @@ import com.example.amigoscodejunitdemo.student.models.Student;
 import com.example.amigoscodejunitdemo.student.service.StudentService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,5 +30,10 @@ public class StudentController {
     public void deleteStudent(
             @PathVariable("studentId") Long studentId) {
         studentService.deleteStudent(studentId);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Student> findOne(@PathVariable Long id) {
+        return ResponseEntity.ok(studentService.findOne(id));
     }
 }

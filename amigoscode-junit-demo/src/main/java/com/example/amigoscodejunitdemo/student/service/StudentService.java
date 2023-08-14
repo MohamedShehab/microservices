@@ -34,4 +34,10 @@ public class StudentService {
         }
         studentRepository.deleteById(studentId);
     }
+
+    public Student findOne(Long studentId) {
+        return studentRepository.findById(studentId).orElseThrow(
+                () -> new StudentNotFoundException("Student dose not exist.")
+        );
+    }
 }
